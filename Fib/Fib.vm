@@ -3,3 +3,30 @@
 
 // Put your code here.
 
+// Fib.vm
+
+function Fib.fib 0
+push argument 0 // Push n
+push constant 0
+eq            // Check if n == 0
+if-goto BASE_CASE
+
+push argument 0 // Push n
+push constant 1
+eq            // Check if n == 1
+if-goto BASE_CASE
+
+push argument 0 // Push n
+push constant 1
+sub           // Calculate n - 1
+call Fib.fib 1 // Recursive call for Fib.fib(n - 1)
+push argument 0 // Push n
+push constant 2
+sub           // Calculate n - 2
+call Fib.fib 1 // Recursive call for Fib.fib(n - 2)
+add           // Add the results of Fib.fib(n - 1) and Fib.fib(n - 2)
+return        // Return the result
+
+label BASE_CASE
+push argument 0 // Push n
+return        // Return n
