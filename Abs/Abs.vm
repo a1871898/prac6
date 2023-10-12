@@ -3,9 +3,31 @@
 
 // Put your code here.
 
+// Abs.vm
+
+// Declare the variables
+push static 0 // Push the value of 'x' onto the stack (static variable 0)
+
+// Duplicate the value of 'x'
 push static 0
-neg
-pop static 1
+neg          // Negate the duplicate value
+
+// Compare the original 'x' with 0
+lt           // Check if 'x' is less than 0
+
+// If 'x' is less than 0, replace the negated value
+if-goto NEGATE
+pop temp 0
+goto END
+
+// If 'x' is greater than or equal to 0, use the original value
+label NEGATE
+pop temp 0
+
+// Set the absolute value 'y'
+label END
+pop static 1 // Store the result in 'y'
+
 
 label END
 goto END
