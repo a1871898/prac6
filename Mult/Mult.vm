@@ -4,6 +4,40 @@
 
 // Put your code here.
 
+// Mult.vm
+
+// Declare the variables
+push static 0  // Push the value of 'x' onto the stack (static variable 0)
+push static 1  // Push the value of 'y' onto the stack (static variable 1)
+pop local 0    // Store 'y' in local variable 0
+
+push constant 0  // Initialize a counter (used for multiplication)
+pop local 1
+
+label LOOP_START
+  // Check if the counter is equal to 'y'
+  push local 1
+  push local 0
+  eq
+
+  // If the counter is equal to 'y', exit the loop
+  if-goto LOOP_END
+
+  // If the counter is not equal to 'y', add 'x' to 'a' and increment the counter
+  push local 0
+  push local 0
+  add
+  pop local 0
+
+  push local 1
+  push constant 1
+  add
+  pop local 1
+
+  // Repeat the loop
+  // goto LOOP_START
+
+// label LOOP_END
 
 
 label END
