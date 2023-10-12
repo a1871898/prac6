@@ -4,6 +4,15 @@
 
 // Put your code here.
 
+// AddSub.vm
+
+// Declare the variables
+push local 0 // Push 'a' onto the stack (local variable 0)
+push local 1 // Push 'b' onto the stack (local variable 1)
+add         // Add 'a' and 'b'
+push static 0 // Push the value of 'x' onto the stack (static variable 0)
+sub         // Subtract 'x'
+pop static 0 // Store the result in 'x'
 
 
 label END
