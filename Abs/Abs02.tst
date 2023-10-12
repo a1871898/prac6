@@ -3,8 +3,8 @@
 // Appendix B of the book "The Elements of Computing Systems"
 
 load Abs.vm,
-output-file Abs00.out,
-compare-to Abs00.cmp,
+output-file Abs02.out,
+compare-to Abs02.cmp,
 output-list sp%D1.6.1 local%D1.6.1 argument%D1.8.1 this%D1.6.1 that%D1.6.1
             RAM[16]%D1.6.1 RAM[17]%D1.6.1 RAM[18]%D1.6.1
             local[0]%D1.8.1 local[1]%D1.8.1 local[2]%D1.8.1
@@ -16,7 +16,7 @@ set argument 400,  // base address of the argument segment
 set this 3000,     // base address of the this segment
 set that 3010,     // base address of the that segment
 
-set RAM[16] -1,  // static 0
+set RAM[16] 8,  // static 0
 set RAM[17] -2,  // static 1
 set RAM[18] -3,  // static 2
 
