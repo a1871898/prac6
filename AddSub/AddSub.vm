@@ -7,6 +7,7 @@
 // AddSub.vm
 
 // Declare the variables
+
 push local 0 // Push 'a' onto the stack (local variable 0)
 push local 1 // Push 'b' onto the stack (local variable 1)
 add         // Add 'a' and 'b'
