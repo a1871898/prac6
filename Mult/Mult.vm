@@ -35,9 +35,9 @@ label LOOP_START
   pop local 1
 
   // Repeat the loop
-  // goto LOOP_START
+  goto LOOP_START
 
-// label LOOP_END
+label LOOP_END
 
 
 label END
