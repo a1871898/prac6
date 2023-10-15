@@ -1,0 +1,11 @@
+def test_vm_pop():
+
+    # Test case 2: Attempting to pop into the constant segment (should raise a ValueError)
+    segment_2 = "constant"
+    index_2 = 5
+    try:
+        vm_pop(segment_2, index_2)
+    except ValueError as e:
+        assert str(e) == "Cannot pop into the constant segment"
+    else:
+        assert False, "Did not raise an error for popping into the constant segment"

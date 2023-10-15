@@ -1,0 +1,6 @@
+def test_vm_pop():
+    # Test case 1: Popping a value into a specific memory segment
+    segment_1 = "local"
+    index_1 = 3
+    expected_1 = "@3\nD=A\n@LOCAL\nD=M+D\n@R13\nM=D\n@SP\nAM=M-1\nD=M\n@R13\nA=M\nM=D\n"
+    assert vm_pop(segment_1, index_1) == expected_1
