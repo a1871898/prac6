@@ -3,3 +3,36 @@
 
 // Put your code here.
 
+function ArrMax.arrMax 2
+push constant 0
+pop local 0
+push constant 0
+pop local 1
+label LOOP
+push argument 1
+push local 1
+lt
+if-goto END
+push argument 0
+push local 1
+add
+pop pointer 1
+push that 0
+push local 0
+gt
+if-goto NOT_LARGER
+push argument 0
+push local 1
+add
+pop pointer 0
+push that 0
+pop local 0
+label NOT_LARGER
+push local 1
+push constant 1
+add
+pop local 1
+goto LOOP
+label END
+push local 0
+return
