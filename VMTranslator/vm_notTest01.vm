@@ -1,0 +1,8 @@
+def test_vm_not():
+    expected = """
+    // not
+    @SP
+    A=M-1
+    M=!M
+    """
+    return expected
