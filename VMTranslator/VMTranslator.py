@@ -139,16 +139,71 @@ class VMTranslator:
     """ % label
 
     def vm_function(function_name, n_vars):
-        '''Generate Hack Assembly code for a VM function operation'''
-        return ""
+        output = f"({function_name})\n"
+        for i in range(int(num_locals)):
+            output += "@SP\nA=M\nM=0\n@SP\nM=M+1\n"
+        return output
 
     def vm_call(function_name, n_args):
-        '''Generate Hack Assembly code for a VM call operation'''
-        return ""
+        return f"@RETURN_ADDRESS_{function_name}\nD=A\n@SP\nA=M\nM=D\n@SP\nM=M+1\n@LCL\nD=M\n@SP\nA=M\nM=D\n@SP\nM=M+1\n@ARG\nD=M\n@SP\nA=M\nM=D\n@SP\nM=M+1\n@THIS\nD=M\n@SP\nA=M\nM=D\n@SP\nM=M+1\n@THAT\nD=M\n@SP\nA=M\nM=D\n@SP\nM=M+1\n@SP\nD=M\n@5\nD=D-A\n@{num_args}\nD=D-A\n@ARG\nM=D\n@SP\nD=M\n@LCL\nM=D\n@{function_name}\n0;JMP\n(RETURN_ADDRESS_{function_name})\n"
 
     def vm_return():
-        '''Generate Hack Assembly code for a VM return operation'''
-        return ""
+        return """
+@LCL
+D=M
+@FRAME
+M=D
+@5
+A=D-A
+D=M
+@RET
+M=D
+@SP
+M=M-1
+A=M
+D=M
+@ARG
+A=M
+M=D
+@ARG
+D=M+1
+@SP
+M=D
+@FRAME
+D=M
+@1
+A=D-A
+D=M
+@THAT
+M=D
+@2
+D=A
+@FRAME
+D=M-D
+A=D
+D=M
+@THIS
+M=D
+@3
+D=A
+@FRAME
+D=M-D
+A=D
+D=M
+@ARG
+M=D
+@4
+D=A
+@FRAME
+D=M-D
+A=D
+D=M
+@LCL
+M=D
+@RET
+A=M
+0;JMP
+"""
 
 # A quick-and-dirty parser when run as a standalone script.
 if __name__ == "__main__":
