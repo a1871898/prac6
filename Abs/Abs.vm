@@ -30,6 +30,3 @@ repeat 100 {        // Change this number to cover the number of instructions in
 }
 output;
 
-
-label END
-goto END
