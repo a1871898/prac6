@@ -6,39 +6,40 @@
 
 // Mult.vm
 
-// Declare the variables
-push static 0  // Push the value of 'x' onto the stack (static variable 0)
-push static 1  // Push the value of 'y' onto the stack (static variable 1)
-pop local 0    // Store 'y' in local variable 0
+// Static variables
+push static x
+push static y
 
-push constant 0  // Initialize a counter (used for multiplication)
-pop local 1
+// Local variable
+push local a
 
-label LOOP_START
-  // Check if the counter is equal to 'y'
-  push local 1
-  push local 0
-  eq
+// Initialize the product register
+push constant 0
+pop register product
 
-  // If the counter is equal to 'y', exit the loop
-  if-goto LOOP_END
+// Loop over the multiplier
+L1:
+push register y
+eq
+if-false L2
 
-  // If the counter is not equal to 'y', add 'x' to 'a' and increment the counter
-  push local 0
-  push local 0
-  add
-  pop local 0
+// Add the multiplicand to the product register
+push register product
+push static x
+add
+pop register product
 
-  push local 1
-  push constant 1
-  add
-  pop local 1
+// Decrement the multiplier
+push constant 1
+sub
+pop register y
 
-  // Repeat the loop
-  goto LOOP_START
+// Jump back to the beginning of the loop
+goto L1
 
-label LOOP_END
+L2:
+// Store the product register in the local variable `a`
+pop local a
 
-
-label END
-goto END
+// Return
+halt
