@@ -1,0 +1,7 @@
+def test_vm_push():
+
+    # Test case 2: Pushing from a specific memory segment onto the stack
+    segment_2 = "local"
+    index_2 = 2
+    expected_2 = "@2\nD=A\n@LOCAL\nA=M+D\nD=M\n@SP\nA=M\nM=D\n@SP\nM=M+1\n"
+    assert vm_push(segment_2, index_2) == expected_2
