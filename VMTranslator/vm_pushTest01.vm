@@ -1,0 +1,6 @@
+def test_vm_push():
+    # Test case 1: Pushing a constant value onto the stack
+    segment_1 = "constant"
+    index_1 = 7
+    expected_1 = "@7\nD=A\n@SP\nA=M\nM=D\n@SP\nM=M+1\n"
+    assert vm_push(segment_1, index_1) == expected_1
