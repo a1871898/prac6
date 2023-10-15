@@ -1,0 +1,2 @@
+test_case_neg = vm_neg()
+print(test_case_neg)

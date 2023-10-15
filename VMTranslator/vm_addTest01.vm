@@ -1,0 +1,2 @@
+test_case_add = vm_add()
+print(test_case_add)
